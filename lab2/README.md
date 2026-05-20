@@ -40,7 +40,7 @@
 
 Зарегистрирован аккаунт на [aws.amazon.com](https://aws.amazon.com). Выбран регион **EU (Frankfurt) `eu-central-1`** в правом верхнем углу консоли.
 
-> 📸 *[скриншот: выбранный регион EU (Frankfurt) в консоли AWS]*
+<img width="527" height="331" alt="frank" src="https://github.com/user-attachments/assets/c7f0a39a-2412-4c72-9570-c26043276a98" />
 
 ---
 
