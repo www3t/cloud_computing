@@ -44,7 +44,8 @@
 Регион установлен на **Frankfurt (eu-central-1)**.  
 В строке поиска открыт сервис **VPC**.
 
-> 📸 *[скриншот: консоль AWS, регион eu-central-1]*
+> <img width="2017" height="1121" alt="vpc" src="https://github.com/user-attachments/assets/9ffec36b-64a6-4d00-b8f5-93c6966c8418" />
+
 
 ---
 
@@ -62,7 +63,8 @@
 
 Нажата кнопка **Create VPC**.
 
-> 📸 *[скриншот: созданная VPC student-vpc-k21 с CIDR 10.21.0.0/16]*
+> <img width="1746" height="831" alt="created-vpc" src="https://github.com/user-attachments/assets/b9aadc0e-1e41-4cf0-96fe-07185f11dccb" />
+
 
 **Что обозначает маска /16? И почему нельзя использовать, например, /8?**
 
@@ -91,7 +93,8 @@
 
 Выбран созданный IGW → **Actions → Attach to VPC** → выбрана `student-vpc-k21` → подтверждено.
 
-> 📸 *[скриншот: IGW student-igw-k21 в статусе Attached к student-vpc-k21]*
+> <img width="1907" height="551" alt="attached vpc" src="https://github.com/user-attachments/assets/f930b981-c080-497e-9418-e5003b12a39e" />
+
 
 ---
 
@@ -110,7 +113,8 @@
 | Availability Zone | `eu-central-1a` |
 | IPv4 CIDR block | `10.21.1.0/24` |
 
-> 📸 *[скриншот: созданная публичная подсеть public-subnet-k21]*
+> <img width="1746" height="831" alt="created-vpc" src="https://github.com/user-attachments/assets/dd4a2426-1f57-433b-91b7-a1aeb8f5d813" />
+
 
 **Является ли подсеть "публичной" на данный момент? Почему?**
 
@@ -133,7 +137,8 @@
 | Availability Zone | `eu-central-1b` |
 | IPv4 CIDR block | `10.21.2.0/24` |
 
-> 📸 *[скриншот: созданная приватная подсеть private-subnet-k21]*
+> <img width="2196" height="370" alt="subnet-association" src="https://github.com/user-attachments/assets/04d23e8c-8caa-4a67-9052-14d5ad3ef106" />
+
 
 **Является ли подсеть "приватной" на данный момент? Почему?**
 
@@ -168,8 +173,9 @@
 
 Вкладка **Subnet associations → Edit subnet associations** → отмечена `public-subnet-k21` → **Save associations**.
 
-> 📸 *[скриншот: таблица маршрутов public-rt-k21 с маршрутом 0.0.0.0/0 → IGW]*
-> 📸 *[скриншот: привязка public-subnet-k21 к public-rt-k21]*
+
+<img width="2307" height="522" alt="created-subnet" src="https://github.com/user-attachments/assets/a35b597e-6cae-46ef-b938-50047f47f9ef" />
+
 
 **Зачем необходимо привязать таблицу маршрутов к подсети?**
 
@@ -190,7 +196,8 @@
 
 Вкладка **Subnet associations → Edit subnet associations** → отмечена `private-subnet-k21` → **Save associations**.
 
-> 📸 *[скриншот: таблица маршрутов private-rt-k21 привязана к private-subnet-k21]*
+> <img width="1983" height="772" alt="route-table" src="https://github.com/user-attachments/assets/28b9ecfd-ae27-44e7-9c68-29d7308fcdcb" />
+
 
 На данном этапе приватная подсеть не имеет выхода в интернет — маршрут к NAT Gateway будет добавлен после его создания.
 
@@ -215,7 +222,8 @@ NAT Gateway (Network Address Translation) позволяет инстансам 
 В левой панели выбрано **Elastic IPs → Allocate Elastic IP address**.  
 Нажата кнопка **Allocate**.
 
-> 📸 *[скриншот: выделенный Elastic IP]*
+><img width="2293" height="388" alt="elastic_ip" src="https://github.com/user-attachments/assets/32057c09-c4a9-47fd-a8b1-98faea0f7e4b" />
+
 
 #### Шаг 6.2. Создание NAT Gateway
 
@@ -233,7 +241,8 @@ NAT Gateway (Network Address Translation) позволяет инстансам 
 Нажата кнопка **Create NAT gateway**.  
 Ожидание статуса **Available** (~2-3 минуты).
 
-> 📸 *[скриншот: NAT Gateway nat-gateway-k21 в статусе Available]*
+> <img width="1757" height="617" alt="nat-gateway" src="https://github.com/user-attachments/assets/c003dc04-9eae-4eca-babf-b76be25b45a5" />
+
 
 #### Шаг 6.3. Обновление приватной таблицы маршрутов
 
@@ -243,7 +252,8 @@ NAT Gateway (Network Address Translation) позволяет инстансам 
 
 Нажата кнопка **Save changes**.
 
-> 📸 *[скриншот: приватная таблица маршрутов с маршрутом 0.0.0.0/0 → NAT Gateway]*
+> <img width="1820" height="686" alt="updated-route-table-with-nat" src="https://github.com/user-attachments/assets/de40fe19-5db8-4129-8c83-4b6068312746" />
+
 
 ---
 
@@ -258,7 +268,7 @@ NAT Gateway (Network Address Translation) позволяет инстансам 
 | HTTP | TCP | 80 | 0.0.0.0/0 |
 | HTTPS | TCP | 443 | 0.0.0.0/0 |
 
-> 📸 *[скриншот: Security Group web-sg-k21 с правилами HTTP и HTTPS]*
+> 
 
 #### bastion-sg-k21 (для Bastion Host)
 
@@ -268,7 +278,7 @@ NAT Gateway (Network Address Translation) позволяет инстансам 
 |---|---|---|---|
 | SSH | TCP | 22 | Мой IP-адрес |
 
-> 📸 *[скриншот: Security Group bastion-sg-k21 с правилом SSH только с моего IP]*
+> 
 
 #### db-sg-k21 (для сервера БД)
 
@@ -280,7 +290,8 @@ NAT Gateway (Network Address Translation) позволяет инстансам 
 | MySQL/Aurora | TCP | 3306 | bastion-sg-k21 |
 | SSH | TCP | 22 | bastion-sg-k21 |
 
-> 📸 *[скриншот: Security Group db-sg-k21 с правилами MySQL и SSH]*
+> <img width="1832" height="828" alt="ACL-web-sg" src="https://github.com/user-attachments/assets/84ab99d6-a6d7-49a4-ad75-f84ef49fb341" />
+
 
 **Что такое Bastion Host и зачем он нужен в архитектуре с приватными подсетями?**
 
@@ -357,9 +368,8 @@ mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'StrongPassword123!'; FLUS
 dnf install -y mariadb105
 ```
 
-> 📸 *[скриншот: все три инстанса в статусе Running]*
-> 📸 *[скриншот: web-server — публичный IP виден, Auto-assign Public IP: Enabled]*
-> 📸 *[скриншот: db-server — публичного IP нет, подсеть private-subnet-k21]*
+<img width="2200" height="412" alt="3 inst status checked" src="https://github.com/user-attachments/assets/84d5a775-39f8-427a-8945-f95d5bc85370" />
+
 
 ---
 
@@ -370,7 +380,8 @@ dnf install -y mariadb105
 Открыт браузер, введён адрес `http://<web-server-Public-IP>`.  
 Отобразилась страница с информацией PHP (`phpinfo()`).
 
-> 📸 *[скриншот: страница phpinfo() в браузере по публичному IP web-server]*
+> <img width="1520" height="1078" alt="php_info" src="https://github.com/user-attachments/assets/8de9fac2-65d9-4de6-832a-63a483b40843" />
+
 
 **Подключение к Bastion Host по SSH:**
 
@@ -385,7 +396,8 @@ ssh -i student-key-k21.pem ec2-user@<Bastion-Host-Public-IP>
 ping -c 4 google.com
 ```
 
-> 📸 *[скриншот: успешный ping google.com с bastion-host — 4/4 packets]*
+> <img width="1052" height="520" alt="google-ping" src="https://github.com/user-attachments/assets/289d82e9-6c29-4393-b7cd-f8a1d6b11880" />
+
 
 Пинги успешны — публичная подсеть и IGW настроены правильно.
 
@@ -396,7 +408,8 @@ mysql -h <DB-Server-Private-IP> -u root -p
 # Пароль: StrongPassword123!
 ```
 
-> 📸 *[скриншот: успешное подключение к MySQL на db-server с bastion-host]*
+> <img width="687" height="58" alt="db-check" src="https://github.com/user-attachments/assets/f596a1eb-fe51-4501-a45d-578dcde504bc" />
+
 
 Подключение успешно — приватная подсеть и Security Groups настроены правильно.
 
@@ -417,7 +430,8 @@ ssh-add student-key-k21.pem
 ssh -A -J ec2-user@<Bastion-Host-Public-IP> ec2-user@<DB-Server-Private-IP>
 ```
 
-> 📸 *[скриншот: успешное подключение к db-server через bastion через SSH Agent Forwarding]*
+> <img width="687" height="58" alt="db-check" src="https://github.com/user-attachments/assets/1efe0446-6f7c-4431-a32f-4e07031916a0" />
+
 
 **Что делает опция `-A` и `-J`?**
 
@@ -432,7 +446,8 @@ sudo dnf update -y
 sudo dnf install -y htop
 ```
 
-> 📸 *[скриншот: успешная установка htop на db-server — NAT Gateway работает]*
+> <img width="2486" height="1051" alt="htop check" src="https://github.com/user-attachments/assets/5a241f15-79bb-46bc-80b8-072aa5083f87" />
+
 
 Обновление прошло успешно — приватная подсеть имеет выход в интернет через NAT Gateway.
 
@@ -469,8 +484,9 @@ ssh-agent -k
 5. **Internet Gateway** — Actions → Detach from VPC → затем Delete internet gateway
 6. **VPC** — Actions → Delete VPC
 
-> 📸 *[скриншот: все EC2-инстансы в статусе Terminated]*
-> 📸 *[скриншот: VPC student-vpc-k21 удалена]*
+<img width="1612" height="640" alt="Screenshot 2026-05-21 002932" src="https://github.com/user-attachments/assets/128f0e43-60ef-4ceb-b656-7056fdbfdbd4" />
+<img width="2223" height="296" alt="natg-deleted" src="https://github.com/user-attachments/assets/5e165de8-f052-4f63-b509-b9667f35c88c" />
+
 
 ---
 
