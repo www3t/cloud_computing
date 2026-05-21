@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Computing Lab 4 — S3 Static Website</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; color: #333; }
+        header { background: #232f3e; color: white; padding: 20px 40px; display: flex; align-items: center; gap: 16px; }
+        header h1 { font-size: 22px; }
+        .badge { background: #ff9900; color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+        .hero { background: linear-gradient(135deg, #232f3e, #37475a); color: white; padding: 60px 40px; text-align: center; }
+        .hero h2 { font-size: 36px; margin-bottom: 12px; }
+        .hero p { font-size: 18px; opacity: 0.8; max-width: 600px; margin: 0 auto 24px; }
+        .hero .btn { background: #ff9900; color: white; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 16px; display: inline-block; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+        .card { background: white; border-radius: 12px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); border-top: 4px solid #ff9900; }
+        .card .icon { font-size: 36px; margin-bottom: 12px; }
+        .card h3 { font-size: 18px; margin-bottom: 8px; color: #232f3e; }
+        .card p { color: #666; font-size: 14px; line-height: 1.6; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0; }
+        .stat { background: white; border-radius: 12px; padding: 24px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+        .stat .number { font-size: 36px; font-weight: 700; color: #ff9900; }
+        .stat .label { color: #666; font-size: 14px; margin-top: 4px; }
+        footer { background: #232f3e; color: #aaa; text-align: center; padding: 20px; font-size: 13px; margin-top: 60px; }
+        .section-title { font-size: 24px; color: #232f3e; margin-bottom: 8px; }
+        .section-sub { color: #888; margin-bottom: 24px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div>
+        <h1>☁️ Cloud Computing Lab 4</h1>
+    </div>
+    <span class="badge">Hosted on Amazon S3</span>
+</header>
+
+<div class="hero">
+    <h2>Amazon S3 Static Website</h2>
+    <p>This website is hosted entirely on Amazon S3 — no servers, no EC2, no maintenance. Just files in a bucket.</p>
+    <a href="#features" class="btn">Learn More →</a>
+</div>
+
+<div class="container">
+
+    <div class="stats">
+        <div class="stat">
+            <div class="number">99.99%</div>
+            <div class="label">S3 Availability SLA</div>
+        </div>
+        <div class="stat">
+            <div class="number">11 9s</div>
+            <div class="label">Durability (99.999999999%)</div>
+        </div>
+        <div class="stat">
+            <div class="number">$0</div>
+            <div class="label">Server Cost</div>
+        </div>
+        <div class="stat">
+            <div class="number">∞</div>
+            <div class="label">Storage Capacity</div>
+        </div>
+    </div>
+
+    <div id="features">
+        <h2 class="section-title">What We Learned in Lab 4</h2>
+        <p class="section-sub">Key Amazon S3 concepts covered in this laboratory work</p>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <div class="icon">🪣</div>
+            <h3>S3 Buckets</h3>
+            <p>Created public and private buckets with proper ACL settings. Public bucket hosts avatars and static content, private bucket stores logs with lifecycle policies.</p>
+        </div>
+        <div class="card">
+            <div class="icon">🔐</div>
+            <h3>Access Control</h3>
+            <p>Configured Block Public Access settings and ACLs. Public objects are accessible via URL, private objects return 403 Forbidden.</p>
+        </div>
+        <div class="card">
+            <div class="icon">⚙️</div>
+            <h3>AWS CLI</h3>
+            <p>Used aws s3 cp, mv and sync commands to upload and manage objects. Applied --acl public-read flag for public access.</p>
+        </div>
+        <div class="card">
+            <div class="icon">🔄</div>
+            <h3>Versioning</h3>
+            <p>Enabled bucket versioning to track all changes to objects. Every upload creates a new version, allowing rollback to previous states.</p>
+        </div>
+        <div class="card">
+            <div class="icon">📅</div>
+            <h3>Lifecycle Rules</h3>
+            <p>Configured automated lifecycle: Standard-IA after 30 days, Glacier Deep Archive after 365 days, deletion after 5 years.</p>
+        </div>
+        <div class="card">
+            <div class="icon">🌐</div>
+            <h3>Static Hosting</h3>
+            <p>Deployed this website using S3 Static Website Hosting — no EC2 needed. Perfect for HTML/CSS/JS sites and React apps.</p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Cloud Computing Lab 4 · Amazon S3 · eu-central-1 (Frankfurt) · student k21</p>
+</footer>
+
+</body>
+</html>
