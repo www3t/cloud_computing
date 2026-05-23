@@ -56,7 +56,8 @@ s3-lab/
 └── README.md
 ```
 
-> 📸 *[скриншот: локальная структура папок s3-lab]*
+> <img width="1583" height="688" alt="image" src="https://github.com/user-attachments/assets/11c7b63a-7bb8-4ca1-a5c5-e5b7a5e9d960" />
+
 
 ---
 
