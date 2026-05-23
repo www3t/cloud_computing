@@ -323,9 +323,7 @@ sudo cp -r app/* /var/www/html/
 sudo systemctl restart nginx php-fpm
 ```
 
-> 📸 *[скриншот: Task Manager открыт в браузере]*
-> 📸 *[скриншот: добавление новой задачи через форму]*
-> 📸 *[скриншот: изменение статуса задачи]*
+
 
 ---
 
@@ -365,7 +363,7 @@ aws dynamodb create-table \
     --region eu-central-1
 ```
 
-> 📸 *[скриншот: таблица ActivityLog создана в DynamoDB консоли]*
+
 
 **Добавление тестовых записей:**
 
@@ -381,8 +379,7 @@ aws dynamodb put-item \
     }' --region eu-central-1
 ```
 
-> 📸 *[скриншот: записи в таблице ActivityLog в консоли DynamoDB]*
-> 📸 *[скриншот: Activity Log в приложении — данные из DynamoDB]*
+
 
 **Какие преимущества и недостатки DynamoDB по сравнению с RDS?**
 
