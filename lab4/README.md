@@ -232,7 +232,8 @@ aws s3 cp s3-lab/public/content/logo.png \
 
 Нажата кнопка **Create rule**.
 
-> 📸 *[скриншот: Lifecycle-правило logs-archive создано]*
+> <img width="2203" height="791" alt="image" src="https://github.com/user-attachments/assets/4d4582f2-b8ac-4502-a6c4-82aa99ace8d8" />
+
 
 **Что такое Storage Class в Amazon S3 и зачем они нужны?**
 
@@ -278,8 +279,8 @@ aws s3 sync website/ s3://cc-lab4-web-k21/ --acl public-read
 http://cc-lab4-web-k21.s3-website.eu-central-1.amazonaws.com
 ```
 
-> 📸 *[скриншот: статический сайт открыт в браузере]*
-> 📸 *[скриншот: настройки Static website hosting в консоли S3]*
+<img width="2353" height="1289" alt="image" src="https://github.com/user-attachments/assets/d47d6c92-ce91-4d24-bae5-983798540065" />
+
 
 ---
 
@@ -320,8 +321,7 @@ $stmt = $db->prepare("INSERT INTO uploads (original_name, unique_name, url) VALU
 $stmt->execute([$originalName, $uniqueName, $result['ObjectURL']]);
 ```
 
-> 📸 *[скриншот: PHP-приложение в браузере — форма загрузки]*
-> 📸 *[скриншот: список загруженных файлов с превью и URL]*
+
 
 ---
 
