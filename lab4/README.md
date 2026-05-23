@@ -92,7 +92,8 @@ s3-lab/
 
 Настройка нужна для защиты от случайной утечки данных. По умолчанию включена для всех новых бакетов. Для публичного хостинга (аватары, статический сайт) её нужно отключить, осознанно подтвердив это действие.
 
-> 📸 *[скриншот: публичный бакет cc-lab4-pub-k21 создан, Block all public access отключён]*
+> <img width="2274" height="629" alt="image" src="https://github.com/user-attachments/assets/8422844d-d37a-423f-ad9a-c4f493beea8f" />
+
 
 #### Приватный бакет `cc-lab4-priv-k21`
 
@@ -103,7 +104,8 @@ s3-lab/
 | Object Ownership | По умолчанию |
 | Block all public access | Включено (по умолчанию) |
 
-> 📸 *[скриншот: приватный бакет cc-lab4-priv-k21 создан]*
+> <img width="2410" height="902" alt="image" src="https://github.com/user-attachments/assets/45cf78b3-db36-4555-ae91-c071f6c3d3a8" />
+
 
 ---
 
@@ -114,7 +116,7 @@ s3-lab/
 В разделе **Permissions** выбрано **Grant public-read access**.  
 Нажата кнопка **Upload**.
 
-> 📸 *[скриншот: файл user1.jpg загружен в avatars/ с public-read доступом]*
+
 
 **Чем отличается ключ (object key) от имени файла?**
 
@@ -142,7 +144,9 @@ aws s3 cp s3-lab/private/logs/activity.csv \
   s3://cc-lab4-priv-k21/logs/activity.csv
 ```
 
-> 📸 *[скриншот: вывод команд aws s3 cp — upload успешен]*
+> <img width="2190" height="642" alt="image" src="https://github.com/user-attachments/assets/42dd86a4-5282-4d0a-b1f0-86ff76e1fc49" />
+
+
 
 **В чём разница между командами `aws s3 cp`, `mv` и `sync`? Для чего используется флаг `--acl public-read`?**
 
@@ -164,7 +168,8 @@ https://cc-lab4-pub-k21.s3.eu-central-1.amazonaws.com/avatars/user1.jpg
 ```
 Изображение отображается успешно.
 
-> 📸 *[скриншот: изображение user1.jpg открыто в браузере]*
+> <img width="2495" height="1227" alt="image" src="https://github.com/user-attachments/assets/5cb96295-750e-432d-a859-dac05297f05b" />
+
 
 **Приватный объект** — попытка открыть URL:
 ```
@@ -172,7 +177,8 @@ https://cc-lab4-priv-k21.s3.eu-central-1.amazonaws.com/logs/activity.csv
 ```
 Получена ошибка **403 AccessDenied** — доступ закрыт.
 
-> 📸 *[скриншот: 403 AccessDenied при попытке открыть приватный объект]*
+> <img width="2304" height="554" alt="image" src="https://github.com/user-attachments/assets/da9c400f-9bdb-4d15-8d0a-0eeca7fcf737" />
+
 
 ---
 
@@ -180,7 +186,7 @@ https://cc-lab4-priv-k21.s3.eu-central-1.amazonaws.com/logs/activity.csv
 
 Для обоих бакетов открыта вкладка **Properties → Bucket Versioning → Edit → Enable → Save changes**.
 
-> 📸 *[скриншот: версионирование включено для cc-lab4-pub-k21]*
+> 
 
 Изменён файл `logo.png` и загружен повторно:
 
@@ -192,7 +198,8 @@ aws s3 cp s3-lab/public/content/logo.png \
 
 На вкладке **Objects → Show versions** видны две версии файла `logo.png` с разными Version ID.
 
-> 📸 *[скриншот: две версии logo.png в бакете с разными Version ID]*
+> <img width="2194" height="549" alt="image" src="https://github.com/user-attachments/assets/2fa3849d-afa6-46c5-91ec-4e02c7464156" />
+
 
 **Что произойдёт, если выключить версионирование после его включения?**
 
