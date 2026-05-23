@@ -46,12 +46,16 @@
 |---|---|---|---|
 | HTTP | TCP | 80 | 0.0.0.0/0 |
 | SSH | TCP | 22 | Мой IP |
+<img width="951" height="686" alt="image" src="https://github.com/user-attachments/assets/35983efa-33ac-495b-b708-e9d1b57c0515" />
+
 
 **Outbound rules:**
 
 | Тип | Протокол | Порт | Назначение |
 |---|---|---|---|
 | MySQL/Aurora | TCP | 3306 | db-mysql-security-group |
+<img width="955" height="652" alt="image" src="https://github.com/user-attachments/assets/a226faec-c402-4817-8d4a-76975f7632f9" />
+
 
 #### Security Group: `db-mysql-security-group`
 
@@ -59,7 +63,9 @@
 |---|---|---|---|
 | MySQL/Aurora | TCP | 3306 | web-security-group |
 
-> 📸 *[скриншот: Security Groups web-security-group и db-mysql-security-group]*
+> <img width="955" height="652" alt="image" src="https://github.com/user-attachments/assets/f17d3a4e-73b7-4950-ba20-bde1df90fd4a" />
+
+
 
 ---
 
@@ -83,7 +89,8 @@
 | VPC | `student-vpc-k21` |
 | Subnets | `private-subnet-k21` (eu-central-1a) + вторая приватная (eu-central-1b) |
 
-> 📸 *[скриншот: созданный Subnet Group project-rds-subnet-group]*
+> <img width="1037" height="527" alt="image" src="https://github.com/user-attachments/assets/68810b02-154d-460c-8459-f8201b289995" />
+
 
 #### Создание RDS MySQL
 
@@ -106,8 +113,8 @@
 
 Нажата кнопка **Create database**. Ожидание статуса **Available** (~10-15 минут).
 
-> 📸 *[скриншот: RDS instance project-rds-mysql-prod в статусе Available]*
-> 📸 *[скриншот: Endpoint базы данных в разделе Connectivity & security]*
+><img width="1400" height="593" alt="image" src="https://github.com/user-attachments/assets/659937a1-47e6-44dc-b34c-7ff76a7b248a" />
+
 
 ---
 
@@ -130,7 +137,9 @@ dnf update -y
 dnf install -y mariadb105
 ```
 
-> 📸 *[скриншот: EC2 инстанс web-server в статусе Running]*
+> <img width="441" height="798" alt="image" src="https://github.com/user-attachments/assets/a68439de-4020-4e38-ac71-ac38d84ed927" />
+
+
 
 ---
 
@@ -205,8 +214,8 @@ LEFT JOIN todos t ON c.id = t.category_id
 GROUP BY c.id, c.name;
 ```
 
-> 📸 *[скриншот: успешное подключение к RDS и вывод SELECT * FROM todos]*
-> 📸 *[скриншот: результат JOIN-запроса]*
+> <img width="776" height="534" alt="image" src="https://github.com/user-attachments/assets/add5d71d-a085-4d5e-9860-e63801730c85" />
+
 
 ---
 
@@ -225,9 +234,7 @@ GROUP BY c.id, c.name;
 | Security group | `db-mysql-security-group` |
 | Enhanced monitoring | Disabled |
 
-Ожидание статуса **Available**.
 
-> 📸 *[скриншот: Read Replica project-rds-mysql-read-replica в статусе Available]*
 
 **Подключение к Read Replica и проверка:**
 
@@ -280,8 +287,8 @@ Read Replicas решают несколько задач:
 4. **Тестирование и аналитика** — тяжёлые аналитические запросы можно выполнять на реплике, не влияя на production мастер
 5. **Резервное копирование** — снимки бэкапов можно делать с реплики, не замедляя мастер
 
-> 📸 *[скриншот: SELECT на реплике — данные совпадают с мастером]*
-> 📸 *[скриншот: ошибка INSERT на реплике — read-only]*
+> <img width="1273" height="910" alt="image" src="https://github.com/user-attachments/assets/2d644d95-c1c2-428e-923b-0800e968b211" />
+
 
 ---
 
